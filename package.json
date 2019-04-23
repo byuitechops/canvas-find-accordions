@@ -1,0 +1,22 @@
+{
+  "name": "canvas-find-accordions",
+  "version": "1.0.0",
+  "description": "Finds accordions that match provided CSS selectors",
+  "main": "main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byuitechops/canvas-find-accordions.git"
+  },
+  "author": "Cal Wilson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/byuitechops/canvas-find-accordions/issues"
+  },
+  "homepage": "https://github.com/byuitechops/canvas-find-accordions#readme"
+}
