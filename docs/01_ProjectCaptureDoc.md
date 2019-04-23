@@ -1,7 +1,7 @@
-# Project Capture Document for (Title of Project)
-#### *Author: Your_Name_Here*
-#### *Stakeholder(s): Their_Names_With_Commas*
-#### *Date: Todays Date*
+# Project Capture Document for Canvas Find Accordions
+#### *Author: Cal Wilson*
+#### *Stakeholder(s): Josh McKinney*
+#### *Date: 4/23/2019*
 
 
 ## Background

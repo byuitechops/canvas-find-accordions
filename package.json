@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/byuitechops/canvas-find-accordions/issues"
   },
-  "homepage": "https://github.com/byuitechops/canvas-find-accordions#readme"
+  "homepage": "https://github.com/byuitechops/canvas-find-accordions#readme",
+  "dependencies": {
+    "canvas-api-wrapper": "^3.3.5",
+    "cheerio": "^1.0.0-rc.3",
+    "d3-dsv": "^1.1.1",
+    "p-map": "^2.1.0"
+  }
 }

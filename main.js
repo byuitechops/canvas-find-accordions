@@ -1,32 +1,36 @@
 /*************************************************************************
  * Module Description
  *************************************************************************/
+const pMap = require('p-map');
+const cheerio = require('cheerio');
+const canvas = require('canvas-api-wrapper');
 
-async function supportingFunction1() {}
-async function supportingFunction2() {}
-async function supportingFunction3() {}
-async function errorHandling(error) {
-    console.error(error);
+async function getCoursePages(course) {
+    let pages = await canvas.get(`/api/v1/courses/${course.id}/pages`);
+    return {
+        course,
+        pages
+    };
 }
 
-async function main(args) {
-    // await / no await
-    await supportingFunction1();
-    await supportingFunction2();
-    await supportingFunction3();
-    return args;
-    // Promise.resolve
-    return await Promise.resolve(args)
-        .then(supportingFunction1)
-        .then(supportingFunction2)
-        .then(supportingFunction3)
-        .catch(errorHandling);
-    // Promise.all, arrayed output
-    return Promise.all([
-        supportingFunction1(),
-        supportingFunction2(),
-        supportingFunction3(),
-    ]);
+async function getPageHTML(course, page) {
+    page.body = await canvas.get(`/api/v1/courses/${course.id}/pages/${page.url}`);
+    return page;
+}
+
+function loadCheerioObject(page) {
+    return cheerio.load(page.body);
+}
+
+async function main(input) {
+    let pageObjects = await pMap(input, getCoursePages);
+    pageObjects.forEach(pageObject => {
+        pageObject.pages.forEach(page => {
+            page = getPageHTML(pageObject.course, page);
+            let $ = loadCheerioObject(page);
+            console.log($);
+        });
+    });
 }
 
 module.exports = {
